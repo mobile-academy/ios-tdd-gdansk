@@ -99,6 +99,41 @@ describe(@"AgendaViewController", ^{
         });
     });
 
+    /*
+    Section: Interaction Test
+    Task: Using our FakeAgendaProvider make sure that AgendaViewController correctly setup its table view
+     according to the items fetched from provider. Verify *interaction* between table view, controller and provider -
+     write tests and implement the following:
+     - table view  has 1 section
+     - when 0 items were fetched, table view should have 0 cells
+     - when 2 items were fetched, table view should have 2 cells
+     - when 2 items were fetched, all cells should be an instance of AgendaTableViewCell
+     - each cell textLabel should have text set corresponding title of AgendaItem
+
+     Key Classes: AgendaViewController, FakeAgendaProvider, AgendaItem (Fixture)
+     Tips: Use the fact that AgendaViewController is a subclass of UITableViewController which conforms to UITableViewDataSource
+     and UITableViewDelegate - to obtain information about table view.
+ */
+
+    describe(@"table view", ^{
+
+        it(@"should have 1 section", ^{
+            //TODO
+        });
+
+        context(@"with 0 items", ^{
+            //TODO
+        });
+
+        context(@"with 2 items", ^{
+            //TODO
+        });
+
+        context(@"cell setup", ^{
+            //TODO
+        });
+    });
+
 });
 
 SPEC_END
