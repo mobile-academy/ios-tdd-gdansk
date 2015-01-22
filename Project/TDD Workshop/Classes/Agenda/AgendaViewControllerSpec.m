@@ -1,6 +1,8 @@
 #import "Specs.h"
 
 #import "AgendaViewController.h"
+#import "FakeAgendaProvider.h"
+#import "FakeTableView.h"
 
 SPEC_BEGIN(AgendaViewController)
 
@@ -43,6 +45,56 @@ describe(@"AgendaViewController", ^{
             expect(viewController.tabBarItem.title).to.equal(@"Agenda");
         });
     });
+
+    /*
+   Section: State Test
+   Task: When viewDidLoad is called we would like to fetch agenda items (via AgendaProvider instance) and when it's done -
+   agenda table view should be reloaded - it should be in reloaded *state*.
+   Implement that feature together with a test which checks:
+   - agenda provider reload is started on viewDidLoad
+   - once provider finishes - table view should be reloaded
+
+   Key Classes: AgendaViewController, AgendaProvider, FakeAgendaProvider, FakeTableView
+   Tips:
+   -   Add functionality to simulate completion in FakeAgendaProvider,
+   -   Make use of FakeTableView (possibly extend it) to check if table was reloaded
+    */
+
+    describe(@"view did load", ^{
+
+        __block FakeAgendaProvider *fakeAgendaProvider;
+
+        beforeEach(^{
+            //Arrange
+            //TODO setup fake provider
+
+            //Act
+            //TODO trigger functionality of AgendaViewController
+        });
+
+        it(@"should schedule agenda reload", ^{
+            //TODO
+        });
+
+        context(@"when reload agenda completes", ^{
+
+            __block FakeTableView *fakeTableView;
+
+            beforeEach(^{
+                //Arrange
+                //TODO setup fake table view
+
+                //Act
+                //TODO simulate completion of FakeAgendaProvider
+            });
+
+            it(@"should reload table view", ^{
+                //TODO
+            });
+
+        });
+    });
+
 });
 
 SPEC_END
