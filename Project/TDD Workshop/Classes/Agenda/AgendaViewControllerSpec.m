@@ -5,6 +5,7 @@
 #import "FakeTableView.h"
 #import "AgendaItem.h"
 #import "AgendaItemFixture+Fixture.h"
+#import "AgendaTableViewCell.h"
 
 SPEC_BEGIN(AgendaViewController)
 
@@ -117,23 +118,60 @@ describe(@"AgendaViewController", ^{
 
     describe(@"table view", ^{
 
+        __block UITableView *tableView;
+        __block FakeAgendaProvider *fakeAgendaProvider;
+
+        beforeEach(^{
+            fakeAgendaProvider = [FakeAgendaProvider new];
+            viewController.agendaProvider = (id)fakeAgendaProvider;
+            tableView = viewController.tableView;
+        });
+
         it(@"should have 1 section", ^{
-            //TODO
+            NSInteger numberOfSections = [viewController.tableView numberOfSections];
+            expect(numberOfSections).to.equal(1);
         });
 
         context(@"with 0 items", ^{
-            //TODO
+            beforeEach(^{
+                [fakeAgendaProvider simulateCompletedReloadWithItems:@[]];
+            });
+            it(@"should have 0 cells in section 0", ^{
+                NSInteger rows = [viewController tableView:tableView numberOfRowsInSection:0];
+                expect(rows).to.equal(0);
+            });
         });
 
         context(@"with 2 items", ^{
-            //TODO
+            beforeEach(^{
+                [fakeAgendaProvider simulateCompletedReloadWithItems:@[ [AgendaItem fixture], [AgendaItem fixture]]];
+            });
+            it(@"should have 2 cells in section 0", ^{
+                NSInteger rows = [viewController tableView:tableView numberOfRowsInSection:0];
+                expect(rows).to.equal(2);
+            });
+
+            it(@"should return cell for each item", ^{
+                for (NSInteger i = 0; i < 2; ++i) {
+                    UITableViewCell *cell = [viewController tableView:tableView
+                                                cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+                    expect(cell).to.beInstanceOf([AgendaTableViewCell class]);
+                }
+            });
         });
 
         context(@"cell setup", ^{
-            //TODO
+            beforeEach(^{
+                [fakeAgendaProvider simulateCompletedReloadWithItems:@[ [AgendaItem fixture] ]];
+            });
+
+            it(@"should set cell's text label to items' title", ^{
+                UITableViewCell *cell = [viewController tableView:tableView
+                                            cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                expect(cell.textLabel.text).to.equal(@"Spec Session");
+            });
         });
     });
-
 });
 
 SPEC_END
