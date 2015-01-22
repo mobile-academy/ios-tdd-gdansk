@@ -30,14 +30,19 @@ describe(@"AgendaViewController", ^{
 
     describe(@"title", ^{
         it(@"should be set to 'Agenda'", ^{
-            //TODO
+            expect(viewController.title).to.equal(@"Agenda");
         });
     });
 
     describe(@"tab bar item", ^{
-        //TODO
-    });
+        it(@"should have a agenda image", ^{
+            expect(viewController.tabBarItem.image).to.equal([UIImage imageNamed:@"agenda"]);
+        });
 
+        it(@"should have a 'Agenda' title", ^{
+            expect(viewController.tabBarItem.title).to.equal(@"Agenda");
+        });
+    });
 });
 
 SPEC_END

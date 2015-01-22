@@ -12,6 +12,7 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
+        self.title = NSLocalizedString(@"Agenda", @"Agenda");
         self.tabBarItem.image = [UIImage imageNamed:@"agenda"];
     }
     return self;
