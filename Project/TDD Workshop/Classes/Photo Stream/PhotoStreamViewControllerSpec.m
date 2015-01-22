@@ -61,12 +61,15 @@ SPEC_BEGIN(PhotoStreamViewController)
         describe(@"when stream item is created", ^{
             __block StreamItemUploader *streamItemUploaderMock;
             __block StreamItemCreator *itemCreatorMock;
+            __block StreamItemDownloader *streamItemDownloaderMock;
             __block StreamItem *testStreamItem;
 
             beforeEach(^{
                 itemCreatorMock = mock([StreamItemCreator class]);
                 streamItemUploaderMock = mock([StreamItemUploader class]);
+                streamItemDownloaderMock = mock([StreamItemDownloader class]);
                 photoStreamViewController.streamItemUploader = streamItemUploaderMock;
+                photoStreamViewController.streamItemDownloader = streamItemDownloaderMock;
                 testStreamItem = [StreamItem new];
 
                 [photoStreamViewController streamItemCreator:itemCreatorMock didCreateItem:testStreamItem];
