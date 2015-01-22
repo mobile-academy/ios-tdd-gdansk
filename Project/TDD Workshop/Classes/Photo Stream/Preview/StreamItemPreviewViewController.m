@@ -8,12 +8,17 @@
 #import "StreamItemPreviewLayout.h"
 
 
+NSString *const kCellId = @"kCellId";
+
+@interface StreamItemPreviewViewController ()
+@end
+
 @implementation StreamItemPreviewViewController
 
 #pragma mark - Object life cycle
 
 - (id)initWithStreamItems:(NSArray *)streamItems {
-    self =  [super init];
+    self = [super init];
     if (self) {
         self.streamItems = streamItems;
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
@@ -32,8 +37,8 @@
 
 - (UICollectionView *)createCollectionView {
     StreamItemPreviewLayout *flowLayout = [StreamItemPreviewLayout new];
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero
-                                                          collectionViewLayout:flowLayout];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     [self setupCollectionView:collectionView];
     return collectionView;
 }
@@ -42,6 +47,7 @@
     collectionView.pagingEnabled = YES;
     collectionView.backgroundColor = [UIColor whiteColor];
     collectionView.dataSource = self;
+    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kCellId];
 }
 
 #pragma mark - Actions
@@ -50,12 +56,19 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - UICollectionViewDataSource
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
+    return [self.streamItems count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellId forIndexPath:indexPath];
+    StreamItem *streamItem = self.streamItems[(NSUInteger) indexPath.item];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[streamItem image]];
+    cell.backgroundView = imageView;
+    cell.backgroundView.contentMode = UIViewContentModeScaleAspectFit;
+    return cell;
 }
 
 
