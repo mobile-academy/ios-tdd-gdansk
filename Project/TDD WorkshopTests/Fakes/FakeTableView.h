@@ -11,6 +11,8 @@
 @property(nonatomic, assign) Class registeredClass;
 @property(nonatomic, copy) NSString *registeredIndentifier;
 
+@property(nonatomic) BOOL reloadDataCalled;
+
 - (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier;
 
 

@@ -14,12 +14,19 @@
     if (self) {
         self.title = NSLocalizedString(@"Agenda", @"Agenda");
         self.tabBarItem.image = [UIImage imageNamed:@"agenda"];
+
+        self.agendaProvider = [AgendaProvider new];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    typeof(self) __weak weakSelf = self;
+    [self.agendaProvider reloadAgendaWithCompletionHandler:^{
+        [weakSelf.tableView reloadData];
+    }];
 }
 
 #pragma mark - Data source

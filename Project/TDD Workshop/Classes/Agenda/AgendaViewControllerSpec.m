@@ -3,6 +3,8 @@
 #import "AgendaViewController.h"
 #import "FakeAgendaProvider.h"
 #import "FakeTableView.h"
+#import "AgendaItem.h"
+#import "AgendaItemFixture+Fixture.h"
 
 SPEC_BEGIN(AgendaViewController)
 
@@ -66,14 +68,15 @@ describe(@"AgendaViewController", ^{
 
         beforeEach(^{
             //Arrange
-            //TODO setup fake provider
+            fakeAgendaProvider = [FakeAgendaProvider new];
+            viewController.agendaProvider = (id) fakeAgendaProvider;
 
             //Act
-            //TODO trigger functionality of AgendaViewController
+            [viewController viewDidLoad];
         });
 
         it(@"should schedule agenda reload", ^{
-            //TODO
+            expect(fakeAgendaProvider.reloadAgendaCalled).to.beTruthy();
         });
 
         context(@"when reload agenda completes", ^{
@@ -82,14 +85,15 @@ describe(@"AgendaViewController", ^{
 
             beforeEach(^{
                 //Arrange
-                //TODO setup fake table view
+                fakeTableView = [FakeTableView new];
+                viewController.view = fakeTableView;
 
                 //Act
-                //TODO simulate completion of FakeAgendaProvider
+                [fakeAgendaProvider simulateCompletedReloadWithItems:@[ [AgendaItem fixture] ]];
             });
 
             it(@"should reload table view", ^{
-                //TODO
+                expect(fakeTableView.reloadDataCalled).to.beTruthy();
             });
 
         });

@@ -17,4 +17,9 @@
     return self.cellToDequeue;
 }
 
+- (void)reloadData {
+    self.reloadDataCalled = YES;
+}
+
+
 @end
