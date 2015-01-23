@@ -93,6 +93,8 @@ describe(@"SpeakersViewController", ^{
                 layout = (UICollectionViewFlowLayout *) [collectionView collectionViewLayout];
             });
 
+            //TODO: Check whether the layout is of SpeakersCollectionViewLayout class
+
             describe(@"when the view lays out it subviews", ^{
 
                 beforeEach(^{
