@@ -10,7 +10,7 @@
 #define COCOAPODS_POD_AVAILABLE_Bolts
 #define COCOAPODS_VERSION_MAJOR_Bolts 1
 #define COCOAPODS_VERSION_MINOR_Bolts 1
-#define COCOAPODS_VERSION_PATCH_Bolts 2
+#define COCOAPODS_VERSION_PATCH_Bolts 3
 
 // Expecta
 #define COCOAPODS_POD_AVAILABLE_Expecta
@@ -33,20 +33,20 @@
 // OCHamcrest
 #define COCOAPODS_POD_AVAILABLE_OCHamcrest
 #define COCOAPODS_VERSION_MAJOR_OCHamcrest 4
-#define COCOAPODS_VERSION_MINOR_OCHamcrest 0
+#define COCOAPODS_VERSION_MINOR_OCHamcrest 1
 #define COCOAPODS_VERSION_PATCH_OCHamcrest 1
 
 // OCMock
 #define COCOAPODS_POD_AVAILABLE_OCMock
 #define COCOAPODS_VERSION_MAJOR_OCMock 3
 #define COCOAPODS_VERSION_MINOR_OCMock 1
-#define COCOAPODS_VERSION_PATCH_OCMock 1
+#define COCOAPODS_VERSION_PATCH_OCMock 2
 
 // OCMockito
 #define COCOAPODS_POD_AVAILABLE_OCMockito
 #define COCOAPODS_VERSION_MAJOR_OCMockito 1
-#define COCOAPODS_VERSION_MINOR_OCMockito 3
-#define COCOAPODS_VERSION_PATCH_OCMockito 1
+#define COCOAPODS_VERSION_MINOR_OCMockito 4
+#define COCOAPODS_VERSION_PATCH_OCMockito 0
 
 // Parse-iOS-SDK
 #define COCOAPODS_POD_AVAILABLE_Parse_iOS_SDK
@@ -62,7 +62,8 @@
 
 // Specta
 #define COCOAPODS_POD_AVAILABLE_Specta
-#define COCOAPODS_VERSION_MAJOR_Specta 0
-#define COCOAPODS_VERSION_MINOR_Specta 2
-#define COCOAPODS_VERSION_PATCH_Specta 1
+// This library does not follow semantic-versioning,
+// so we were not able to define version macros.
+// Please contact the author.
+// Version: 0.3.0.beta1.
 

@@ -14,7 +14,7 @@ pod 'SAMultisectorControl'
 target :specs do
   link_with 'TDD WorkshopTests'
 
-  pod 'Specta'
+  pod 'Specta', :git => 'https://github.com/specta/specta.git'
   pod 'Expecta'
   pod 'OCMockito'
   pod 'OCMock'

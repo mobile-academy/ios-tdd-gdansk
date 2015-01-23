@@ -1,37 +1,46 @@
 PODS:
-  - Bolts (1.1.2)
+  - Bolts (1.1.3)
   - Expecta (0.3.1)
   - IQKeyboardManager (3.0.8)
   - Masonry (0.5.3)
-  - OCHamcrest (4.0.1)
-  - OCMock (3.1.1)
-  - OCMockito (1.3.1):
+  - OCHamcrest (4.1.1)
+  - OCMock (3.1.2)
+  - OCMockito (1.4.0):
     - OCHamcrest (~> 4.0)
   - Parse-iOS-SDK (1.3.0):
     - Bolts (~> 1.1.2)
   - SAMultisectorControl (1.0.1)
-  - Specta (0.2.1)
+  - Specta (0.3.0.beta1)
 
 DEPENDENCIES:
   - Expecta
   - IQKeyboardManager (~> 3.0.4)
   - Masonry
   - OCMock
-  - OCMockito
+  - OCMockito (= 1.4.0)
   - Parse-iOS-SDK (~> 1.3)
   - SAMultisectorControl
-  - Specta
+  - Specta (from `https://github.com/specta/specta.git`)
+
+EXTERNAL SOURCES:
+  Specta:
+    :git: https://github.com/specta/specta.git
+
+CHECKOUT OPTIONS:
+  Specta:
+    :commit: 9371f3a3a2a4316efae04ebc135cdcf89086e975
+    :git: https://github.com/specta/specta.git
 
 SPEC CHECKSUMS:
-  Bolts: 2635e8698a630774689441047f3465d78c48d485
+  Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
   Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
   IQKeyboardManager: 0bf193c2d8a4d9c2063b39d6bc9d4e45a381a02a
   Masonry: 35368c2ca9577ca87722c12fc52c4bad9b1c1516
-  OCHamcrest: b464725bbb48d0f1cd9c6f4ec3cb35fe0c4f2b94
-  OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
-  OCMockito: 57b8c4bb54ff3a4a14eb2174f9e57faf9f56efb6
+  OCHamcrest: af1c7c5ea345de69ea6c9c2958f65f3044e5c420
+  OCMock: ecdd510b73ef397f2f97274785c1e87fd147c49f
+  OCMockito: 991936bb775cc4c27f063d38f5e17b9161fbd21c
   Parse-iOS-SDK: fb847b9d3e9444a27f78a81e9496de1cacefd1da
   SAMultisectorControl: 0634d2ba88110d882d8d91a4ad2b7adf0e05aeba
-  Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
+  Specta: 63e8ac8e07db6675c7096d37f77a266a1be4c02d
 
-COCOAPODS: 0.34.1
+COCOAPODS: 0.35.0
