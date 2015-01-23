@@ -9,3 +9,6 @@
 
 #define SPT_CEDAR_SYNTAX
 #import <Specta/Specta.h>
+
+#define SPEC_BEGIN SpecBegin
+#define SPEC_END SpecEnd
