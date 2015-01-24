@@ -16,6 +16,10 @@
     self =  [super init];
     if (self) {
         self.streamItems = streamItems;
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                               target:self
+                                                                                               action:@selector(doneBarButtonPressed:)];
+
     }
     return self;
 }
