@@ -7,10 +7,9 @@
 
 @class StreamItem;
 
-@interface StreamItemPreviewViewController : UIViewController
-@property(nonatomic, strong) StreamItem *streamItem;
+@interface StreamItemPreviewViewController : UIViewController <UICollectionViewDataSource>
+@property(nonatomic, strong) NSArray *streamItems;
 
-- (instancetype)initWithStreamItem:(StreamItem *)streamItem;
-+ (instancetype)controllerWithStreamItem:(StreamItem *)streamItem;
+- (id)initWithStreamItems:(NSArray *)streamItems;
 
 @end

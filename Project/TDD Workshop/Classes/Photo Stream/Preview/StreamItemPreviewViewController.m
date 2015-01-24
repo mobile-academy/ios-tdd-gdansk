@@ -12,30 +12,32 @@
 
 #pragma mark - Object life cycle
 
-- (instancetype)initWithStreamItem:(StreamItem *)streamItem {
-    self = [super init];
+- (id)initWithStreamItems:(NSArray *)streamItems {
+    self =  [super init];
     if (self) {
-        self.streamItem = streamItem;
-        self.title = self.streamItem.title;
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                               target:self
-                                                                                               action:@selector(doneBarButtonPressed:)];
+        self.streamItems = streamItems;
     }
     return self;
-}
-
-+ (instancetype)controllerWithStreamItem:(StreamItem *)streamItem {
-    return [[self alloc] initWithStreamItem:streamItem];
 }
 
 #pragma mark - View life cycle
 
 - (void)loadView {
+    self.view = [self createCollectionView];
+}
+
+- (UICollectionView *)createCollectionView {
     StreamItemPreviewLayout *flowLayout = [StreamItemPreviewLayout new];
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero
+                                                          collectionViewLayout:flowLayout];
+    [self setupCollectionView:collectionView];
+    return collectionView;
+}
+
+- (void)setupCollectionView:(UICollectionView *)collectionView {
     collectionView.pagingEnabled = YES;
     collectionView.backgroundColor = [UIColor whiteColor];
-    self.view = collectionView;
+    collectionView.dataSource = self;
 }
 
 #pragma mark - Actions
@@ -43,5 +45,14 @@
 - (void)doneBarButtonPressed:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 0;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
 
 @end
