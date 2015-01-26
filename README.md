@@ -12,6 +12,7 @@ tdd-workshop
 ## Slides
 
 - [Introduction to testing](https://speakerdeck.com/paweldudek/tdd-workshop-gdansk) - Pawel Dudek
+- [Working with Legacy Code](https://speakerdeck.com/maciejoczko/ios-tdd-workshop-gdansk) - Maciej Oczko
 
 ## Resources
 - [Specta](https://github.com/specta/specta)
